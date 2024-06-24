@@ -69,6 +69,7 @@ export const cartReducer = (
         }
         return{
             ...state,
+            // Aquí actualizamos correctamente el campo 'cart' en el estado pasándole la variable updatedCart
             cart: updatedCart
         }
     }
@@ -78,6 +79,7 @@ export const cartReducer = (
         const cart = state.cart.filter( item => item.id !== action.payload.id )
         return{
             ...state,
+            // Aquí actualizamos correctamente el campo 'cart' en el estado pasándo directamente cart
             cart
         }
     }
@@ -95,6 +97,7 @@ export const cartReducer = (
         })
         return{
             ...state,
+            // Aquí actualizamos correctamente el campo 'cart' en el estado
             cart
         }
     }
@@ -112,6 +115,7 @@ export const cartReducer = (
         })
         return{
             ...state,
+            // Aquí actualizamos correctamente el campo 'cart' en el estado
             cart
         }
     }
@@ -120,6 +124,7 @@ export const cartReducer = (
         // Limpiamos el carrito
         return{
             ...state,
+            // Aquí actualizamos correctamente el campo 'cart' en el estado pasándo un arreglo vacío
             cart: []
         }
     }
