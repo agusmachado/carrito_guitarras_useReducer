@@ -5,17 +5,19 @@ import { cartReducer, initialState } from "./reducers/cart-reducers"
 
 function App() {
 
+  // Inicializo useReducer con el reducer y el estado inicial
   const [ state, dispatch ] = useReducer( cartReducer, initialState )
 
   //console.log(state)
 
-  // useEffect para local Storage
+  // Guardo el estado del carrito en localStorage cada vez que cambie
   useEffect( () => {
     localStorage.setItem('cart', JSON.stringify(state.cart))
   }, [state.cart])
 
   return (
     <>
+      {/* Paso el carrito y la función dispatch al Header */}
       <Header 
         cart={state.cart}
         dispatch={dispatch}        
@@ -25,6 +27,7 @@ function App() {
           <h2 className="text-center">Nuestra Colección</h2>
 
           <div className="row mt-5">
+              {/* Mapeo sobre los datos de guitarras y renderizo un componente Guitar para cada uno */}
               {state.data.map((guitar) => (
                   <Guitar 
                     key={guitar.id}
